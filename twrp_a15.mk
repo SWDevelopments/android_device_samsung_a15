@@ -1,11 +1,17 @@
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk) -- only for 64bit phones
+DEVICE_PATH := device/samsung/a15
 
-# Inherit from device
-$(call inherit-product, device/samsung/a15/device.mk) -- path to main device makefile
+# Release name
+PRODUCT_RELEASE_NAME := a15
 
-# Inherit common product files.
-$(call inherit-product, vendor/pb/config/common.mk)
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
+
+# Inherit some common TWRP stuff.
+$(call inherit-product, vendor/twrp/config/common.mk)
+
+# Inherit device configuration
+$(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 PRODUCT_DEVICE := a15
 PRODUCT_NAME := twrp_a15

@@ -9,14 +9,14 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit some common twrp stuff.
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from a15 device
 $(call inherit-product, device/samsung/a15/device.mk)
 
 PRODUCT_DEVICE := a15
-PRODUCT_NAME := omni_a15
+PRODUCT_NAME := twrp_a15
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-A155F
 PRODUCT_MANUFACTURER := samsung

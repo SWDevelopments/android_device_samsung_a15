@@ -1,19 +1,11 @@
-#
-# Copyright (C) 2024 The Android Open Source Project
-# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk) -- only for 64bit phones
 
-# Inherit some common twrp stuff.
-$(call inherit-product, vendor/twrp/config/common.mk)
+# Inherit from device
+$(call inherit-product, device/samsung/a15/device.mk) -- path to main device makefile
 
-# Inherit from a15 device
-$(call inherit-product, device/samsung/a15/device.mk)
+# Inherit common product files.
+$(call inherit-product, vendor/pb/config/common.mk)
 
 PRODUCT_DEVICE := a15
 PRODUCT_NAME := twrp_a15
